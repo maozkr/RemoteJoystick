@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.remotejoystick.view_model.ViewModel" />
+            type="com.example.remotejoystick.view_model.UserViewModel" />
     </data>
 
 
@@ -28,28 +28,28 @@
             app:layout_constraintVertical_bias="0.973" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/PortText"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:text="@string/ip"
+            android:text="@string/port"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+            app:layout_constraintTop_toBottomOf="@+id/IPText" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName7"
+            android:id="@+id/IPText"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginTop="24dp"
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:text="@string/port"
+            android:text="@string/ip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +66,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6"
+            app:layout_constraintTop_toBottomOf="@+id/PortText"
             app:layout_constraintVertical_bias="0.0" />
 
 
