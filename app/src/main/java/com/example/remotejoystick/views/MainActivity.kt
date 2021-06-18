@@ -27,9 +27,9 @@ class MainActivity : AppCompatActivity(), JoypadView.Listener {
 
 
     fun doneClicked(view: View) {
-        val ip_text = findViewById<EditText>(R.id.IPText)
-        var text: String = ip_text.text.toString();
-        Log.d("ip:", "$text")
+        val ipText = findViewById<EditText>(R.id.IPText)
+        val text: String = ipText.text.toString()
+        Log.d("ip:", text)
     }
 
     override fun onUp() {
