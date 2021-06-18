@@ -1,17 +1,16 @@
 package com.example.remotejoystick.views
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.example.remotejoystick.R
 import com.example.remotejoystick.databinding.ActivityMainBinding
-import com.example.remotejoystick.view_model.UserViewModel
+import ninja.eigenein.joypad.JoypadView
 
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), JoypadView.Listener {
 
     lateinit var binding: ActivityMainBinding
 
@@ -21,14 +20,21 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button7).setOnClickListener {
             doneClicked(it)
         }
-        val binding: ActivityMainBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.lifecycleOwner = this
 
+        findViewById<JoypadView>(R.id.joypad_view).setListener(this)
 
     }
 
 
     fun doneClicked(view: View) {
     }
+
+    override fun onUp() {
+    }
+
+    override fun onMove(p0: Float, p1: Float, p2: Float) {
+        Log.d("test", "$p1,$p2,$p0")
+    }
 }
+
+
