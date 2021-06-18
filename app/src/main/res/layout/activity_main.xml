@@ -71,20 +71,40 @@
 
 
         <SeekBar
+            android:id="@+id/seekBar"
             android:layout_width="340dp"
             android:layout_height="383dp"
             android:layout_gravity="center"
-            android:translationX="-120dp"
             android:progress="50"
             android:progressDrawable="@drawable/custom_seek_bar"
             android:rotation="90"
             android:splitTrack="false"
             android:thumb="@drawable/seekbar_thumb"
+            android:translationX="-120dp"
             app:layout_constraintBottom_toTopOf="@+id/seekBar6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button7"
             app:layout_constraintVertical_bias="0.48"
             tools:ignore="MissingConstraints" />
+
+        <ninja.eigenein.joypad.JoypadView
+            android:id="@+id/joypad_view"
+            android:layout_width="266dp"
+            android:layout_height="309dp"
+            android:background="@android:drawable/arrow_up_float"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:translationX="-30dp"
+            app:directions_color="@android:color/holo_blue_bright"
+            app:inner_radius="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/seekBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.613"
+            app:moveable_color="@color/colorAccent"
+            app:moveable_radius="80dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
