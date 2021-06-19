@@ -3,4 +3,5 @@
     <string name="connect">Connect</string>
     <string name="ip">IP</string>
     <string name="port">Port</string>
+    <string name="_6400">6400</string>
 </resources>

@@ -39,7 +39,7 @@
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:text="@string/port"
+            android:text="@string/_6400"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
