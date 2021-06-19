@@ -21,6 +21,10 @@
             android:id="@+id/seekBar6"
             android:layout_width="338dp"
             android:layout_height="37dp"
+            android:progressDrawable="@drawable/custom_seek_bar"
+            android:thumb="@drawable/seekbar_thumb"
+            android:progress="50"
+            android:splitTrack="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,9 +77,8 @@
         <SeekBar
             android:id="@+id/seekBar"
             android:layout_width="340dp"
-            android:layout_height="383dp"
+            android:layout_height="380dp"
             android:layout_gravity="center"
-            android:progress="50"
             android:progressDrawable="@drawable/custom_seek_bar"
             android:rotation="270"
             android:splitTrack="false"
@@ -84,7 +87,7 @@
             app:layout_constraintBottom_toTopOf="@+id/seekBar6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button7"
-            app:layout_constraintVertical_bias="0.48"
+            app:layout_constraintVertical_bias="0.5"
             tools:ignore="MissingConstraints" />
 
         <ninja.eigenein.joypad.JoypadView

@@ -20,13 +20,24 @@ class MainActivity : AppCompatActivity(), JoypadView.Listener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        viewModel = UserViewModel()
         findViewById<Button>(R.id.button7).setOnClickListener { doneClicked(it) }
         findViewById<SeekBar>(R.id.seekBar).setOnSeekBarChangeListener(object :
             OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val throttle : Double = progress.div(100.0)
                 Log.d("throttle", throttle.toString())
-                // viewModel.update("throttle", throttle.toString())
+                viewModel.update("throttle", throttle.toString())
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+        })
+        findViewById<SeekBar>(R.id.seekBar6).setOnSeekBarChangeListener(object :
+            OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                val rudder : Double = progress.minus(50.0).div(50.0)
+                Log.d("rudder", rudder.toString())
+                viewModel.update("rudder", rudder.toString())
             }
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
@@ -48,7 +59,8 @@ class MainActivity : AppCompatActivity(), JoypadView.Listener {
     }
 
     override fun onMove(p0: Float, p1: Float, p2: Float) {
-        Log.d("test", "$p1,$p2,$p0")
+        viewModel.update("aileron", p1.toString())
+        viewModel.update("elevator", p2.toString())
     }
 
 

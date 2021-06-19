@@ -1,5 +1,6 @@
 package com.example.remotejoystick.model
 
+import android.util.Log
 import java.io.OutputStream
 import java.lang.Exception
 import java.net.Socket
@@ -16,10 +17,10 @@ class FGPlayer {
     private lateinit var _thread: Thread
 
     // data bind
-    lateinit var aileron: String
-    lateinit var elevator: String
-    lateinit var rudder: String
-    lateinit var throttle: String
+    var aileron: String = "0.5"
+    var elevator: String  = "0.5"
+    var rudder: String = "0.5"
+    var throttle: String  = "0.5"
 
 
     fun play(ip: String, port: Int) {
@@ -28,10 +29,10 @@ class FGPlayer {
         if (!_running) {
             _running = true
             _thread = Thread(Runnable { run() })
-            _thread.run()
+            _thread.start()
         } else if (_port != port && _ip != ip) {
             _thread = Thread(Runnable { run() })
-            _thread.run()
+            _thread.start()
         } else return
     }
 
@@ -39,15 +40,18 @@ class FGPlayer {
     private fun run() {
         try {
             client = Socket(_ip, _port)
+            Log.d("work","done")
         } catch (e: Exception) {
+            _running = false
+            Log.d("work",e.toString())
             return
         }
         val writer: OutputStream = client.getOutputStream()
         while (_running) {
-            write(writer,"set /controls/flight/aileron $throttle")
-            write(writer,"set /controls/flight/elevator $rudder")
-            write(writer,"set /controls/flight/rudder $elevator")
-            write(writer,"set /controls/flight/current-engine/throttle $aileron")
+            write(writer,"set/controls/flight/aileron $throttle")
+            write(writer,"set/controls/flight/elevator $rudder")
+            write(writer,"set/controls/flight/rudder $elevator")
+            write(writer,"set/controls/flight/current-engine/throttle $aileron")
             Thread.sleep(100);
         }
     }
