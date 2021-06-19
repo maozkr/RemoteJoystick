@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity(), JoypadView.Listener {
             OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val throttle : Double = progress.div(100.0)
-                Log.d("throttle", throttle.toString())
                 viewModel.update("throttle", throttle.toString())
             }
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
@@ -36,7 +35,6 @@ class MainActivity : AppCompatActivity(), JoypadView.Listener {
             OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val rudder : Double = progress.minus(50.0).div(50.0)
-                Log.d("rudder", rudder.toString())
                 viewModel.update("rudder", rudder.toString())
             }
             override fun onStartTrackingTouch(seekBar: SeekBar) {}

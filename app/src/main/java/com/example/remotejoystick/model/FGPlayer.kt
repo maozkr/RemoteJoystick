@@ -17,10 +17,10 @@ class FGPlayer {
     private lateinit var _thread: Thread
 
     // data bind
-    var aileron: String = "0.5"
-    var elevator: String  = "0.5"
-    var rudder: String = "0.5"
-    var throttle: String  = "0.5"
+    var aileron: String = "0"
+    var elevator: String  = "0"
+    var rudder: String = "0"
+    var throttle: String  = "0"
 
 
     fun play(ip: String, port: Int) {
@@ -46,12 +46,13 @@ class FGPlayer {
             Log.d("work",e.toString())
             return
         }
+        val reader: Scanner = Scanner(client.getInputStream())
         val writer: OutputStream = client.getOutputStream()
         while (_running) {
-            write(writer,"set/controls/flight/aileron $throttle")
-            write(writer,"set/controls/flight/elevator $rudder")
-            write(writer,"set/controls/flight/rudder $elevator")
-            write(writer,"set/controls/flight/current-engine/throttle $aileron")
+            write(writer,"set /controls/flight/aileron $aileron")
+            write(writer,"set /controls/flight/elevator $elevator")
+            write(writer,"set /controls/flight/rudder $rudder")
+            write(writer,"set /controls/flight/current-engine/throttle $throttle")
             Thread.sleep(100);
         }
     }
