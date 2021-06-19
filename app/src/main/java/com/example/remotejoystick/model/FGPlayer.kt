@@ -52,7 +52,7 @@ class FGPlayer {
             write(writer,"set /controls/flight/aileron $aileron")
             write(writer,"set /controls/flight/elevator $elevator")
             write(writer,"set /controls/flight/rudder $rudder")
-            write(writer,"set /controls/flight/current-engine/throttle $throttle")
+            write(writer,"set /controls/engines/current-engine/throttle $throttle")
             Thread.sleep(100);
         }
     }
